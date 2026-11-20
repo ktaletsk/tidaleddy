@@ -65,6 +65,18 @@ On GitHub the build also adds a link to the repository in the header and an "Edi
 
 The install step uses `uv.lock`, so after changing dependencies run `uv lock` and commit the lockfile.
 
+## Releasing
+
+[`.github/workflows/release.yml`](.github/workflows/release.yml) publishes with PyPI's [trusted publishing](https://docs.pypi.org/trusted-publishers/), so no API token is stored anywhere.
+
+**Once,** on both [pypi.org](https://pypi.org/manage/account/publishing/) and [test.pypi.org](https://test.pypi.org/manage/account/publishing/): **Account → Publishing → Add a pending publisher**, with owner `ktaletsk`, repository `tidaleddy`, workflow `release.yml`, and environment `pypi` (on TestPyPI, `testpypi`).
+
+**Each release:**
+
+1. Set `version` in `pyproject.toml` and push.
+2. Try it on TestPyPI first: **Actions → release → Run workflow**. That tests, builds and uploads to TestPyPI only. Then `pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ tidaleddy` to check.
+3. Publish a GitHub release tagged `v<version>` (e.g. `v0.1.0`). The workflow checks the tag matches the version, then uploads to TestPyPI (skipped if already there) and PyPI.
+
 ## Developing
 
 ```bash

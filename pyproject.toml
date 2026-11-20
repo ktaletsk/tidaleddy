@@ -39,6 +39,9 @@ marimo = [
 ]
 
 [project.urls]
+Documentation = "https://ktaletsk.github.io/tidaleddy/"
+Repository = "https://github.com/ktaletsk/tidaleddy"
+Issues = "https://github.com/ktaletsk/tidaleddy/issues"
 "Upstream (Vortex)" = "https://codeberg.org/uzu/vortex"
 TidalCycles = "https://tidalcycles.org"
 
