@@ -42,7 +42,7 @@ The core works on Python 3.10+. The `marimo` extra needs Python 3.11+ because wi
 
 Two example notebooks list their own dependencies, so molab or `marimo edit --sandbox` installs everything:
 
-- [`examples/tour.py`](examples/tour.py): first sounds, then Python superpowers (a cellular automaton, words as a melody, a loop you bend with the mouse). [Open it in molab](https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py).
+- [`examples/live-coding-music-in-python.py`](examples/live-coding-music-in-python.py): what live coding is (a video), first sounds, then Python superpowers (a cellular automaton, words as a melody, a loop you bend with the mouse). [Open it in molab](https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/live-coding-music-in-python.py).
 - [`examples/playground.py`](examples/playground.py): a bigger live-coding notebook with tempo and loop-length sliders. [Open it in molab](https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/playground.py).
 
 ```bash

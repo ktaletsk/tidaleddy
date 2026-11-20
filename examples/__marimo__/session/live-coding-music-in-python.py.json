@@ -1,0 +1,386 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.2",
+    "script_metadata_hash": "bd3c1cf08c09259a3402b1ca3543eb71"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "fd6452b0fa73eaeb03023d0c61aaa021",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"live-coding-music-in-python\">\ud83c\udf00 Live-coding music in Python</h1>\n<span class=\"paragraph\"><strong>Live coding</strong> is making music by writing code while it plays. Here is what that\nlooks like: <a href=\"https://www.youtube.com/@Switch-Angel\" rel=\"noopener noreferrer\" target=\"_blank\">Switch Angel</a> builds a deep acid\ntrack from scratch in two minutes, in <a href=\"https://strudel.cc\" rel=\"noopener noreferrer\" target=\"_blank\">Strudel</a>, the\nJavaScript sibling of the patterns you'll write below.</span></span><iframe src='https://www.youtube-nocookie.com/embed/HkgV_-nJOuE' title='2 Minute Deep Acid in Strudel (from scratch), by Switch Angel' style='display:block;width:100%;max-width:720px;aspect-ratio:16/9;border:0;border-radius:12px' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><a href=\"https://ktaletsk.github.io/tidaleddy/\" rel=\"noopener noreferrer\" target=\"_blank\">eddy</a> brings the same pattern language,\nfrom <a href=\"https://tidalcycles.org\" rel=\"noopener noreferrer\" target=\"_blank\">TidalCycles</a>, to Python. You write short patterns of\nrhythm and melody, and eddy turns them into sound, synthesized right here in the\nnotebook with numpy.</span>\n<span class=\"paragraph\">This notebook starts with a few small sounds, then shows what Python adds: patterns\nbuilt by code, by a cellular automaton, by your words, and by a loop you bend\nwith the mouse.</span>\n<span class=\"paragraph\"><strong>In every box below:</strong> press <strong>\u25b6 Play</strong>, click the code to change it (<strong>\u21b5</strong> applies),\ndrag the blue numbers, and click sound names to cycle through them. Changes come in on\nthe next loop, without stopping the music. <strong>\u25a0 Hush</strong> stops.</span></span></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "4dbd3c7a68c84f5b775a0ec505c0e2c1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "8c60211cf5f657c861aa97d288ec7a41",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-first-sounds\">1. First sounds</h2>\n<span class=\"paragraph\"><code>s(\"\u2026\")</code> picks sounds by name. Several sounds split the <strong>cycle</strong> (the loop) into\nequal steps: <code>bd</code> is a kick drum, <code>hh</code> a hi-hat, <code>sn</code> a snare.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "97107678587b1a6e723ba741db81ab30",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='26c4ba1f-5c9e-33a2-b093-d57c29ef5fec'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;3ac5d64f670244a0847f132c71529470&quot;}' data-label='null' data-model-id='&quot;3ac5d64f670244a0847f132c71529470&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "c987d62bc945004f2026ac35f71ede81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>~</code> is a rest, <code>[ ]</code> squeezes several sounds into one step, and <code>*</code> repeats a step\nwithin its slot.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "0587443286f7fa742c563066152e91c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='PKri-0' random-id='18fa90a1-f3eb-a417-aeb7-ee88e5110dc9'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;6aaa643367e14c91a6d48b34f16695ef&quot;}' data-label='null' data-model-id='&quot;6aaa643367e14c91a6d48b34f16695ef&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "740f40ac1f1d25d4878f315879bac809",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>&lt; &gt;</code> plays one item per cycle, taking turns. This box loops four cycles, so you hear\nall four.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "87c5f7a2e88efcdec4a721f7f8072483",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='SFPL-0' random-id='94aa7bfb-8803-7e37-8407-7a8eebb580eb'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;05835463c0d3445e9c18466e1de501e6&quot;}' data-label='null' data-model-id='&quot;05835463c0d3445e9c18466e1de501e6&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "3ef7306f792d4722f824859795e6a4de",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Give <code>Repl</code> several lines and each becomes a <strong>layer</strong> of a <code>stack(...)</code>. Click \ud83d\udd0a to\nmute one. Synths play notes: <code>n</code> counts semitones from middle C.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "3f0c51721545038a583738cf88cb54e6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='RGSE-0' random-id='2729a838-d3a5-b6c8-b0c3-b59f58ef2b66'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;6394e4ac34f2457aadabd877bed94413&quot;}' data-label='null' data-model-id='&quot;6394e4ac34f2457aadabd877bed94413&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "0087e743125b4a047f328137256520ff",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">A little more <a href=\"https://ktaletsk.github.io/tidaleddy/mini-notation/\" rel=\"noopener noreferrer\" target=\"_blank\">mini-notation</a>:\n<code>(3,8)</code> is a Euclidean rhythm (3 hits spread over 8 steps), <code>?0.4</code> drops 40% of the\nhits at random, and <code>{ }</code> lets patterns of different lengths drift against each other.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "2d0102446394a7bdfccf64f72cdace5d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='emfo-0' random-id='1061c388-9601-ff95-d3c5-7aafb9449659'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;c45122fb353f4ec292db8467bfcf0c55&quot;}' data-label='null' data-model-id='&quot;c45122fb353f4ec292db8467bfcf0c55&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "3c8cf95f5931aa07fb2c9106b6dcabb6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-python-superpowers\">2. Python superpowers</h2>\n<span class=\"paragraph\">A pattern is an ordinary Python value. So anything Python can compute, you can play.\n<code>play(pattern)</code> gives you a player for any pattern.</span>\n<h3 id=\"build-patterns-with-code\">Build patterns with code</h3>\n<span class=\"paragraph\">A list comprehension makes a whole drum section: hi-hats at 1, 2, 3 and 4 hits per\ncycle, each softer and further to the right.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "7e32a8eb6627f6c622e69f0bf6eaed81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='nWHF-0' random-id='18313a7e-bd03-b0b0-8640-4d9a5b106a17'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;e3be4c91199b45ff88ded9dc1f22bd5c&quot;}' data-label='null' data-model-id='&quot;e3be4c91199b45ff88ded9dc1f22bd5c&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "98bdf11329790889451a7ff17431df53",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"rhythms-from-a-cellular-automaton\">Rhythms from a cellular automaton</h3>\n<span class=\"paragraph\">An <a href=\"https://en.wikipedia.org/wiki/Elementary_cellular_automaton\" rel=\"noopener noreferrer\" target=\"_blank\">elementary cellular automaton</a>\nturns a row of cells into the next row by a rule numbered 0 to 255. Each row makes a\nrhythm: a live cell is a rim shot. Four generations, one per cycle. Try rules 30, 90,\n105 and 150.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "702acc5e8f3234dd074f4d70d9bce8e6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ZHCJ-0' random-id='8cece3e3-162d-6a5a-4895-57a14edf0c4c'><marimo-slider data-initial-value='90' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003erule&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1' data-stop='255' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "43788006d6a2cbc27ac7349575319b6e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><div style='display:grid;grid-template-columns:repeat(16,1fr);gap:3px;max-width:420px'><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#0e8b8b'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i><i style='display:block;aspect-ratio:1;border-radius:3px;background:#8882'></i></div><marimo-ui-element object-id='ROlb-0' random-id='f188ab07-7367-a7e6-7516-2647fc4502b6'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;5f1f24b9cb574a0e8773c4a561ae6282&quot;}' data-label='null' data-model-id='&quot;5f1f24b9cb574a0e8773c4a561ae6282&quot;'></marimo-anywidget></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "f0bb086b2c28715b2a66fc6ccb67c13a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"your-words-as-a-melody\">Your words as a melody</h3>\n<span class=\"paragraph\">Each letter becomes a step in a scale. Type anything and press \u21b5, then pick a scale.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "46275b7fcb0a08a32d85a6db6a7b8214",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 1rem'><marimo-ui-element object-id='TqIu-0' random-id='3d01a93d-4e8a-6bdd-c56f-3a81466621d7'><marimo-text data-initial-value='&quot;marimo&quot;' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003etext&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-placeholder='&quot;&quot;' data-kind='&quot;text&quot;' data-full-width='false' data-disabled='false' data-debounce='true'></marimo-text></marimo-ui-element><marimo-ui-element object-id='TqIu-1' random-id='340e5cf7-33d7-ff80-c584-96edb5c3b916'><marimo-dropdown data-initial-value='[&quot;minpent&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003escale&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;minpent&quot;,&quot;majpent&quot;,&quot;dorian&quot;,&quot;phrygian&quot;,&quot;blues&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "bf45f642216f76d77f1276cca695bbf4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>m\u21922</code> <code>a\u21920</code> <code>r\u21927</code> <code>i\u21928</code> <code>m\u21922</code> <code>o\u21924</code></span></span><marimo-ui-element object-id='Vxnm-0' random-id='2f90874f-50c5-d2f1-15ba-4b76d0cbea09'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;7f28b7b28d2b41f5b99ed3202fe8d38f&quot;}' data-label='null' data-model-id='&quot;7f28b7b28d2b41f5b99ed3202fe8d38f&quot;'></marimo-anywidget></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "7de3955904824e82db3231f4222a5e40",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"patterns-are-data-too\">Patterns are data, too</h3>\n<span class=\"paragraph\"><code>query</code> returns a pattern's events for a span of time as plain Python objects, so you\ncan test patterns, count notes, or draw them however you like.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "871cdf6474d7fe6d6c1e3ccaf77adc11",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ulZA-0' random-id='4655348f-b5a0-ae91-2a68-aefc42e8d1ee'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;start&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/24&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;bd&#92;&quot;},{&#92;&quot;start&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/6&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;bd&#92;&quot;},{&#92;&quot;start&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;7/24&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;bd&#92;&quot;},{&#92;&quot;start&#92;&quot;:&#92;&quot;1/3&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/2&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;hh&#92;&quot;},{&#92;&quot;start&#92;&quot;:&#92;&quot;1/2&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;2/3&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;hh&#92;&quot;},{&#92;&quot;start&#92;&quot;:&#92;&quot;2/3&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1&#92;&quot;,&#92;&quot;sound&#92;&quot;:&#92;&quot;cp&#92;&quot;}]&quot;' data-total-rows='6' data-total-columns='3' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-show-filters='false' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "1a4a4bf35fea243545119e4225fbca45",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-a-loop-you-can-bend\">3. A loop you can bend</h2>\n<span class=\"paragraph\">The pad below is <a href=\"https://github.com/koaning/wigglystuff\" rel=\"noopener noreferrer\" target=\"_blank\">wigglystuff</a>'s\n<code>CurveEditor</code>, turned into a loop. Drag its knots, double-click to add or remove one,\nor roll the \ud83c\udfb2. A dot rides the loop in time with the music, once around per loop\n(drag the <code>1\u00d7</code> for more laps).</span>\n<span class=\"paragraph\">The stack below the pad can follow the dot:</span>\n<table>\n<thead>\n<tr>\n<th>in a layer</th>\n<th>what it is</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>path.x</code></td>\n<td>how far right the dot is, 0 to 1</td>\n</tr>\n<tr>\n<td><code>path.y</code></td>\n<td>how high the dot is, 0 to 1</td>\n</tr>\n<tr>\n<td><code>path.knots</code></td>\n<td>a hit each time the dot passes a knot</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">Here the dot's height plays a melody, its left-right position opens a filter and pans\nthe hats, and every knot is a rim shot. Press \u25b6 on the player, then reshape the loop.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "16a3b4263855a3a5d37d326bf4d14c7d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Pvdt-0' random-id='e598e21d-f41d-a53d-0100-dabbaf1a96d3'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;9d4e52f963dd499c87a314ba856ba25f&quot;}' data-label='null' data-model-id='&quot;9d4e52f963dd499c87a314ba856ba25f&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "163a99717e8d13446a1af32259e38016",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "cf8d64ae30380bedbf17269b6984e648",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='aLJB-0' random-id='c859f0a5-c5aa-d17a-32a0-b7d343709199'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;a59884788f354752a11761c84f745214&quot;}' data-label='null' data-model-id='&quot;a59884788f354752a11761c84f745214&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "ec44f62eef74569a4382b8370134cb73",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='nHfw-0' random-id='58a1f489-49cd-ac13-3437-26ed8c393f5b'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;956b89f2d57e4cca8fbcc6c947efe32e&quot;}' data-label='null' data-model-id='&quot;956b89f2d57e4cca8fbcc6c947efe32e&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "53963d46ce9acc79d9d2be6ce77d3cd6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><small>130 events in a 4-cycle loop</small></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "41a12a82b310384341ce4104fce12098",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"where-next\">Where next</h2>\n<ul>\n<li><a href=\"https://ktaletsk.github.io/tidaleddy/\" rel=\"noopener noreferrer\" target=\"_blank\">The eddy docs</a>: first sounds, the whole\n  mini-notation, and more Python.</li>\n<li><a href=\"https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/playground.py\" rel=\"noopener noreferrer\" target=\"_blank\">The full playground</a>:\n  a bigger live-coding notebook with tempo and loop-length sliders.</li>\n<li>Locally: <code>pip install \"tidaleddy[marimo]\"</code>, then <code>marimo edit</code>.</li>\n<li><a href=\"https://github.com/ktaletsk/tidaleddy\" rel=\"noopener noreferrer\" target=\"_blank\">Source on GitHub</a>. eddy's pattern engine\n  comes from <a href=\"https://codeberg.org/uzu/vortex\" rel=\"noopener noreferrer\" target=\"_blank\">Vortex</a>, the Python port of TidalCycles.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

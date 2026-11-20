@@ -43,8 +43,8 @@ A pattern in eddy is an ordinary Python object. So you can build one with a loop
 ## Try it in a notebook
 
 <div class="molab-card">
-  <div class="molab-card-text"><strong>The eddy tour</strong><span>Everything on these pages in one notebook, plus a loop you bend with the mouse. molab is marimo's free cloud notebook service: it installs eddy for you.</span></div>
-  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py">Open in molab ↗</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/tour.py">View source</a></div>
+  <div class="molab-card-text"><strong>Live-coding music in Python</strong><span>Everything on these pages in one notebook, plus a video of live coding and a loop you bend with the mouse. molab is marimo's free cloud notebook service: it installs eddy for you.</span></div>
+  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/live-coding-music-in-python.py">Open in molab ↗</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/live-coding-music-in-python.py">View source</a></div>
 </div>
 
 ## Install

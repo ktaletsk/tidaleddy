@@ -9,27 +9,43 @@
 import marimo
 
 __generated_with = "0.25.2"
-app = marimo.App(width="medium", app_title="eddy: a tour")
+app = marimo.App(width="medium", app_title="Live-coding music in Python")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    # 🌀 eddy: a tour
+    _video = mo.Html(
+        "<iframe src='https://www.youtube-nocookie.com/embed/HkgV_-nJOuE' "
+        "title='2 Minute Deep Acid in Strudel (from scratch), by Switch Angel' "
+        "style='display:block;width:100%;max-width:720px;aspect-ratio:16/9;border:0;border-radius:12px' "
+        "allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' "
+        "allowfullscreen></iframe>"
+    )
+    mo.vstack([
+        mo.md(r"""
+        # 🌀 Live-coding music in Python
 
-    [eddy](https://ktaletsk.github.io/tidaleddy/) is the pattern engine of
-    [TidalCycles](https://tidalcycles.org), in Python. You write short patterns of
-    rhythm and melody, and eddy turns them into sound, synthesized right here in the
-    notebook with numpy.
+        **Live coding** is making music by writing code while it plays. Here is what that
+        looks like: [Switch Angel](https://www.youtube.com/@Switch-Angel) builds a deep acid
+        track from scratch in two minutes, in [Strudel](https://strudel.cc), the
+        JavaScript sibling of the patterns you'll write below.
+        """),
+        _video,
+        mo.md(r"""
+        [eddy](https://ktaletsk.github.io/tidaleddy/) brings the same pattern language,
+        from [TidalCycles](https://tidalcycles.org), to Python. You write short patterns of
+        rhythm and melody, and eddy turns them into sound, synthesized right here in the
+        notebook with numpy.
 
-    The tour starts with a few small sounds, then shows what Python adds: patterns
-    built by code, by a cellular automaton, by your words, and by a loop you bend
-    with the mouse.
+        This notebook starts with a few small sounds, then shows what Python adds: patterns
+        built by code, by a cellular automaton, by your words, and by a loop you bend
+        with the mouse.
 
-    **In every box below:** press **▶ Play**, click the code to change it (**↵** applies),
-    drag the blue numbers, and click sound names to cycle through them. Changes come in on
-    the next loop, without stopping the music. **■ Hush** stops.
-    """)
+        **In every box below:** press **▶ Play**, click the code to change it (**↵** applies),
+        drag the blue numbers, and click sound names to cycle through them. Changes come in on
+        the next loop, without stopping the music. **■ Hush** stops.
+        """),
+    ])
     return
 
 

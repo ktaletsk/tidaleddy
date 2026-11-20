@@ -111,9 +111,9 @@ mo.ui.table(
 
 ## Take it further in a notebook
 
-These examples, and a loop you bend with the mouse that the music follows, are in the tour notebook. Open it on molab to change any of the code, then make it your own: generate patterns from data with pandas, from images with numpy, or from the weather.
+These examples, and a loop you bend with the mouse that the music follows, are in one notebook. Open it on molab to change any of the code, then make it your own: generate patterns from data with pandas, from images with numpy, or from the weather.
 
 <div class="molab-card">
-  <div class="molab-card-text"><strong>The eddy tour</strong><span>Edit the Python, add cells, and keep a copy. Runs in the cloud with molab; nothing to install.</span></div>
-  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py">Open in molab ↗</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/tour.py">View source</a></div>
+  <div class="molab-card-text"><strong>Live-coding music in Python</strong><span>Edit the Python, add cells, and keep a copy. Runs in the cloud with molab; nothing to install.</span></div>
+  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/live-coding-music-in-python.py">Open in molab ↗</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/live-coding-music-in-python.py">View source</a></div>
 </div>
