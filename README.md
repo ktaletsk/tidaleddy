@@ -40,7 +40,10 @@ The core works on Python 3.10+. The `marimo` extra needs Python 3.11+ because wi
 | `TangleStack` | a `stack(...)` code editor: type code, drag numbers, click sound and scale names ([wigglystuff](https://github.com/koaning/wigglystuff) Tangle widgets) |
 | `PathPad` | a loop you bend by dragging knots. A dot rides it in time with the music, and patterns follow it via `path.x`, `path.y`, `path.knots` |
 
-See [`examples/playground.py`](examples/playground.py) for a complete notebook. It lists its own dependencies, so marimo can install them in a sandbox:
+Two example notebooks list their own dependencies, so molab or `marimo edit --sandbox` installs everything:
+
+- [`examples/tour.py`](examples/tour.py): first sounds, then Python superpowers (a cellular automaton, words as a melody, a loop you bend with the mouse). [Open it in molab](https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py).
+- [`examples/playground.py`](examples/playground.py): a bigger live-coding notebook with tempo and loop-length sliders. [Open it in molab](https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/playground.py).
 
 ```bash
 marimo edit --sandbox examples/playground.py
@@ -48,11 +51,14 @@ marimo edit --sandbox examples/playground.py
 
 ## Documentation
 
-The docs are Markdown pages in [`docs/pages`](docs/pages) whose examples run in the browser as [marimo islands](https://docs.marimo.io/guides/exporting/webassembly_html/) on Pyodide. Build them into a static site and serve it with anything:
+The docs are Markdown pages in [`docs/pages`](docs/pages) whose examples run in the browser as [marimo islands](https://docs.marimo.io/guides/exporting/webassembly_html/) on Pyodide. In the browser they install the latest tidaleddy from PyPI. Build them into a static site and serve it with anything:
 
 ```bash
 .venv/bin/python docs/build.py
 python -m http.server -d docs/_site
+
+# docs that use changes not yet on PyPI: serve a wheel of this checkout with the site
+.venv/bin/python docs/build.py --local-wheel
 ```
 
 [`docs/build.py`](docs/build.py) explains the page format: ```` ```eddy ```` blocks become editable, playable examples, and ```` ```python live ```` blocks run Python and show the result.

@@ -109,5 +109,11 @@ mo.ui.table(
 )
 ```
 
-!!! note "Take it further in a notebook"
-    These examples are small marimo cells. In your own notebook (`pip install "tidaleddy[marimo]"`, then `marimo edit`), you can combine them with anything in the Python ecosystem: generate patterns from data with pandas, from images with numpy, or from the weather.
+## Take it further in a notebook
+
+These examples, and a loop you bend with the mouse that the music follows, are in the tour notebook. Open it on molab to change any of the code, then make it your own: generate patterns from data with pandas, from images with numpy, or from the weather.
+
+<div class="molab-card">
+  <div class="molab-card-text"><strong>The eddy tour</strong><span>Edit the Python, add cells, and keep a copy. Runs in the cloud with molab; nothing to install.</span></div>
+  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py">Open in molab ↗</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/tour.py">View source</a></div>
+</div>

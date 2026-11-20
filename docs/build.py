@@ -1,7 +1,8 @@
 """Build the eddy docs: Markdown pages with live marimo islands, run in the browser by Pyodide.
 
-    .venv/bin/python docs/build.py            # writes docs/_site
-    python -m http.server -d docs/_site       # any static server works
+    .venv/bin/python docs/build.py                # writes docs/_site
+    .venv/bin/python docs/build.py --local-wheel  # ...with eddy from this checkout
+    python -m http.server -d docs/_site           # any static server works
 
 Pages live in docs/pages/*.md. Besides ordinary Markdown, three kinds of
 fenced block become marimo islands (cells that run in the reader's browser):
@@ -19,7 +20,11 @@ fenced block become marimo islands (cells that run in the reader's browser):
 
 Each page is one marimo app. The cells run once here, at build time, so their
 outputs are in the page before Python starts in the browser. Then Pyodide
-installs eddy from the wheel built next to the site and the islands come alive.
+installs the latest tidaleddy from PyPI and the islands come alive.
+
+The build runs the examples with eddy from this checkout, but readers get the
+release on PyPI. To preview docs that need unreleased changes, use --local-wheel:
+it builds a wheel from this checkout and serves it with the site instead.
 """
 
 from __future__ import annotations
@@ -48,8 +53,8 @@ PAGES = DOCS / "pages"
 THEME = DOCS / "theme"
 OUT = DOCS / "_site"
 
-# Pyodide runs in a web worker, so wheel URLs must be absolute. Pages carry this
-# placeholder, and a line of inline JS swaps in the site's real address on load.
+# With --local-wheel: Pyodide runs in a web worker, so wheel URLs must be absolute.
+# Pages carry this placeholder, and a line of inline JS swaps in the site's address.
 SITE_PLACEHOLDER = "@SITE@/"
 FENCE = re.compile(r"^```(?P<lang>[\w-]+)(?P<opts>[^\n]*)\n(?P<body>.*?)^```[ \t]*$", re.M | re.S)
 FRONTMATTER = re.compile(r"\A---\n(.*?)\n---\n", re.S)
@@ -258,8 +263,13 @@ async def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
-    wheel = build_wheel()
-    dependency = f"tidaleddy[marimo] @ {SITE_PLACEHOLDER}{wheel.as_posix()}"
+    if "--local-wheel" in sys.argv[1:]:
+        wheel = build_wheel()
+        dependency = f"tidaleddy[marimo] @ {SITE_PLACEHOLDER}{wheel.as_posix()}"
+        source = wheel.as_posix()
+    else:
+        dependency = "tidaleddy[marimo]"  # the latest release on PyPI
+        source = "tidaleddy from PyPI"
 
     pages = sorted((read_page(p) for p in PAGES.glob("*.md")), key=lambda p: (p.order, p.slug))
     template = (THEME / "page.html").read_text()
@@ -301,7 +311,7 @@ async def main() -> None:
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(out)
         print(f"  {page.slug:16} {len(page.blocks):2} islands  {len(out) // 1024:4} KB")
-    print(f"built {len(pages)} pages into {OUT.relative_to(REPO)}/ with {wheel.as_posix()}")
+    print(f"built {len(pages)} pages into {OUT.relative_to(REPO)}/; readers get {source}")
 
 
 if __name__ == "__main__":  # the islands build runs cells in a subprocess that re-imports this file

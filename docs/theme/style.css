@@ -240,3 +240,20 @@ marimo-island .markdown, marimo-island .prose { color: var(--text); }
 .edit-link { max-width: 780px; margin: 40px auto 0; font-size: 13.5px; }
 .edit-link a { color: var(--muted); }
 .edit-link + .pager { margin-top: 16px; }
+
+/* "Open in molab" cards */
+.molab-card {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin: 8px 0 24px; padding: 16px 18px; border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border)); background: var(--accent-soft);
+}
+.molab-card-text { flex: 1 1 280px; }
+.molab-card-text strong { display: block; font-size: 16px; }
+.molab-card-text span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 2px; }
+.molab-card-links { display: flex; align-items: center; gap: 14px; }
+.molab-button {
+  display: inline-block; padding: 8px 14px; border-radius: 10px; font-weight: 600; font-size: 14px;
+  background: var(--accent); color: var(--bg) !important;
+}
+.molab-button:hover { text-decoration: none; filter: brightness(1.08); }
+.molab-source { font-size: 14px; color: var(--muted); }

@@ -40,6 +40,13 @@ Now change it while it plays: click the code, swap `sn` for `cp`, and press **â†
 
 A pattern in eddy is an ordinary Python object. So you can build one with a loop, keep a library of them in a module, generate one from data, or test it with pytest. And inside a [marimo](https://marimo.io) notebook, sliders and text boxes can shape the music while it plays. [Python superpowers](python/) shows what that looks like.
 
+## Try it in a notebook
+
+<div class="molab-card">
+  <div class="molab-card-text"><strong>The eddy tour</strong><span>Everything on these pages in one notebook, plus a loop you bend with the mouse. molab is marimo's free cloud notebook service: it installs eddy for you.</span></div>
+  <div class="molab-card-links"><a class="molab-button" href="https://molab.marimo.io/github/ktaletsk/tidaleddy/blob/main/examples/tour.py">Open in molab â†—</a><a class="molab-source" href="https://github.com/ktaletsk/tidaleddy/blob/main/examples/tour.py">View source</a></div>
+</div>
+
 ## Install
 
 eddy needs Python 3.10 or newer. The `marimo` extra adds the synth, the player and the live editor you see here (Python 3.11+).
@@ -57,4 +64,4 @@ Repl('s("bd hh sn hh")')
 ```
 
 !!! note "How these pages work"
-    Each example is a [marimo island](https://docs.marimo.io/guides/exporting/webassembly_html/): a notebook cell running in your browser through [Pyodide](https://pyodide.org), a WebAssembly build of Python. When a page opens, Python starts and installs eddy, then the examples come alive. The first visit downloads about 25 MB; after that your browser has it cached. Nothing is sent to a server.
+    Each example is a [marimo island](https://docs.marimo.io/guides/exporting/webassembly_html/): a notebook cell running in your browser through [Pyodide](https://pyodide.org), a WebAssembly build of Python. When a page opens, Python starts and installs the latest eddy from PyPI, then the examples come alive. The first visit downloads about 25 MB; after that your browser has it cached. Nothing is sent to a server.
