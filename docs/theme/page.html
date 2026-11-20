@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page_title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="icon" href="{{root}}logo.svg" type="image/svg+xml">
+  <script>
+    // pick the colour theme before first paint: saved choice, else the system's
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("eddy-theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark", "dark-theme");
+    })();
+  </script>
+  {{islands_head}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{root}}pygments.css">
+  <link rel="stylesheet" href="{{root}}style.css">
+</head>
+<body data-islands="{{has_islands}}">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <button class="icon-button nav-toggle" type="button" aria-label="Show pages" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <a class="brand" href="{{root}}">
+      <img src="{{root}}logo.svg" alt="" width="28" height="28">
+      <span>eddy</span>
+    </a>
+    <span class="brand-tag">TidalCycles patterns in Python</span>
+    <div class="header-spacer"></div>
+    <span class="py-status" data-state="idle" hidden>
+      <span class="py-dot" aria-hidden="true"></span><span class="py-text">Starting Python…</span>
+    </span>
+    {{repo_link}}
+    <button class="icon-button theme-toggle" type="button" aria-label="Switch light or dark theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Pages">
+      <p class="sidebar-title">Learn</p>
+      {{nav}}
+      <p class="sidebar-title">Elsewhere</p>
+      <ul>
+        <li><a href="https://tidalcycles.org/docs/" rel="noopener">TidalCycles docs ↗</a></li>
+        <li><a href="https://strudel.cc/workshop/getting-started/" rel="noopener">Strudel workshop ↗</a></li>
+        <li><a href="https://codeberg.org/uzu/vortex" rel="noopener">Vortex (upstream) ↗</a></li>
+        <li><a href="https://marimo.io" rel="noopener">marimo ↗</a></li>
+      </ul>
+    </nav>
+
+    <main id="content" class="content">
+      <article class="prose">
+        {{content}}
+      </article>
+      {{edit_link}}
+      <nav class="pager" aria-label="Previous and next page">{{pager}}</nav>
+      <footer class="site-footer">
+        <p>eddy is the pattern engine of <a href="https://codeberg.org/uzu/vortex">Vortex</a>, the Python port of
+          <a href="https://tidalcycles.org">TidalCycles</a>, repackaged with a numpy synth. GPL-3.0-or-later.
+          The examples run in your browser with <a href="https://marimo.io">marimo</a> islands and
+          <a href="https://pyodide.org">Pyodide</a>.</p>
+      </footer>
+    </main>
+
+    <aside class="toc" aria-label="On this page">{{toc}}</aside>
+  </div>
+
+  {{payload}}
+  <script>
+    // Pyodide runs in a web worker, where relative URLs mean nothing: point the
+    // wheel dependency at this site's real address before the islands start.
+    (function () {
+      var site = new URL("{{root}}", location.href).href;
+      document.querySelectorAll('script[type="application/vnd.marimo.islands+json"]').forEach(function (s) {
+        s.textContent = s.textContent.split("@SITE@/").join(site);
+      });
+    })();
+  </script>
+  <script src="{{root}}site.js" defer></script>
+</body>
+</html>

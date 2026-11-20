@@ -1,0 +1,72 @@
+[project]
+name = "tidaleddy"
+version = "0.1.0"
+description = "The TidalCycles pattern engine from Vortex, without the GUI or OSC. Plus a marimo playground."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE.md"]
+# The pattern engine is by the Vortex authors; add yourself as maintainer before publishing.
+authors = [{ name = "Vortex authors (Tidal Cyclists)" }]
+requires-python = ">=3.10"
+dependencies = [
+    "parsimonious>=0.11,<0.12",
+]
+keywords = ["tidalcycles", "vortex", "live-coding", "music", "patterns", "marimo"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Artistic Software",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Framework :: Jupyter",
+]
+
+[project.optional-dependencies]
+# eddy.marimo: a numpy synth, a Web Audio player, a Tangle-style code editor and a path pad.
+# wigglystuff is pinned to 0.6.x because eddy.marimo runs its front-end modules directly.
+marimo = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "anywidget>=0.9",
+    "traitlets>=5.9",
+    "wigglystuff>=0.6,<0.7",
+]
+
+[project.urls]
+"Upstream (Vortex)" = "https://codeberg.org/uzu/vortex"
+TidalCycles = "https://tidalcycles.org"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "marimo>=0.17",
+]
+# docs/build.py uses marimo's islands generator, including two private details,
+# so the docs build stays on the marimo version it was tested with.
+docs = [
+    "marimo>=0.25.2,<0.26",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eddy"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/eddy", "tests", "examples", "LICENSE", "NOTICE.md", "README.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+# The package supports Python 3.10+, but the marimo extra (wigglystuff) needs 3.11+,
+# so lock the development environment (uv sync) for 3.11+ only.
+environments = ["python_version >= '3.11'"]

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+__marimo__/
+.DS_Store
+
+# docs build output
+docs/_site/
