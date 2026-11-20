@@ -1,0 +1,191 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.2",
+    "script_metadata_hash": "78280ebe6e848624165abc6ef09a4b87"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "92ec0ec11b9cabf060e05c3f135eec1b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"eddy-playground\">\ud83c\udf00 eddy playground</h1>\n<span class=\"paragraph\"><a href=\"https://pypi.org/project/tidaleddy/\" rel=\"noopener noreferrer\" target=\"_blank\">eddy</a> is the TidalCycles pattern engine from\n<a href=\"https://codeberg.org/uzu/vortex\" rel=\"noopener noreferrer\" target=\"_blank\">Vortex</a>, the Python port of TidalCycles (Strudel is\nits JavaScript sibling). Normally Tidal sends OSC to SuperCollider/SuperDirt. Here a\nsmall numpy synth (<code>eddy.marimo</code>) renders the pattern straight to audio instead, so\nnothing else needs installing.</span>\n<span class=\"paragraph\"><strong>How to play:</strong> press <strong>\u25b6 Play</strong>, then play with the code below it. It's a\n<a href=\"https://worrydream.com/Tangle/\" rel=\"noopener noreferrer\" target=\"_blank\">Tangle</a>-style code editor built from\n<a href=\"https://github.com/koaning/wigglystuff\" rel=\"noopener noreferrer\" target=\"_blank\">wigglystuff</a> widgets:</span>\n<ul>\n<li><strong>type:</strong> click any code to edit that line. <strong>\u21b5</strong> applies it, <strong>esc</strong> cancels, <strong>\u2191 \u2193</strong> move between lines.\n  \"+ add a layer\" adds a line, and an empty line is removed. <strong>\u270e edit as text</strong> edits (or pastes) the whole stack.</li>\n<li><strong>drag</strong> the blue numbers (shift = \u00d710, alt = \u00d70.1, or click one to type a value)</li>\n<li><strong>click</strong> a sound or scale name to cycle it, or \ud83d\udd0a to mute a layer</li>\n<li><strong>shape the path:</strong> the pad above the code is a loop you bend by dragging its knots. A dot rides it in\n  time with the music, and layers can follow the dot with <code>path.x</code>, <code>path.y</code> and <code>path.knots</code>.</li>\n</ul>\n<span class=\"paragraph\">Every change comes in on the next cycle and playback doesn't stop. <strong>\u25a0 Hush</strong> stops it.\nEdits live in the widget. To keep them, <strong>copy</strong> the stack as code, or paste it into\nthe editor cell's source. Re-running that cell resets it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "2abf9cb11e84433480ee5c68e1674424",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "280adcb95126461546e954df827c6001",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 2rem'><marimo-ui-element object-id='bkHC-0' random-id='5712d7ee-5d5e-10bd-0172-29495ec257ad'><marimo-slider data-initial-value='0.5' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003ecps&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0.25' data-stop='1.25' data-step='0.025' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element><marimo-ui-element object-id='bkHC-1' random-id='63aca59e-b127-d8b7-7361-eceaea784c65'><marimo-slider data-initial-value='4' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eloop (cycles)&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='1' data-stop='16' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "3179999a0ce3c1221f1296ca5723f6ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='lEQa-0' random-id='3334ac5d-0efa-033b-ab04-f30c4b657dc0'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;9640bfea865046b484014cd2f97cfac4&quot;}' data-label='null' data-model-id='&quot;9640bfea865046b484014cd2f97cfac4&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "d9155c432486363c5aa7e46a7d33e0a8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: flex-start;flex-wrap: nowrap;gap: 1.5rem'><marimo-ui-element object-id='PKri-0' random-id='85aa0db6-da0c-8288-af4c-f2434857793f'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;c43138bca9e74dea87d31dcdf1ce9aa2&quot;}' data-label='null' data-model-id='&quot;c43138bca9e74dea87d31dcdf1ce9aa2&quot;'></marimo-anywidget></marimo-ui-element><div style='max-width:360px'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>The path.</strong> Bend the loop and a dot rides it in time with the\nmusic, once around per loop. Any layer can follow the dot:</span>\n<table>\n<thead>\n<tr>\n<th>in a layer</th>\n<th>what it is</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>path.x</code></td>\n<td>how far right the dot is, 0 to 1</td>\n</tr>\n<tr>\n<td><code>path.y</code></td>\n<td>how high the dot is, 0 to 1</td>\n</tr>\n<tr>\n<td><code>path.knots</code></td>\n<td>a hit each time the dot passes a knot</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">Both <code>path.x</code> and <code>path.y</code> work like <code>sine()</code>: scale them with\n<code>.range(lo, hi)</code>, turn them into notes with <code>.segment(8)</code>.</span>\n<span class=\"paragraph\">In the stack below, the dot's height moves a little arpeggio up\nand down a scale, its left-right position opens the filter and\npans the hats, and every knot is a rim shot.</span></span></div></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "c3ab630e1e0773ed791f2dccb975c614",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "d5de25713225765759b84659fdb56fbc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='SFPL-0' random-id='25405e75-7de1-32c1-f52b-717449935d1c'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;7f62438020f644eb93f6183c2dc22e9c&quot;}' data-label='null' data-model-id='&quot;7f62438020f644eb93f6183c2dc22e9c&quot;'></marimo-anywidget></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "020aba582c79165a87fcc5347782651b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "50220a5440f3ab07e94f5bea6061e862",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: center;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><small>Copy the current stack as plain eddy code, e.g. into the free-form cell \u2192</small></span></span><marimo-ui-element object-id='RGSE-0' random-id='b7854c96-e4fc-45bc-3f68-130c916dad44'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;3f96fca3a9d14235964e642f04204ef7&quot;}' data-label='null' data-model-id='&quot;3f96fca3a9d14235964e642f04204ef7&quot;'></marimo-anywidget></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "4b275f8c01196c1a923239eb0e65aaca",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><small>130 events \u00b7 8.0s loop \u00b7 \u2248 120 bpm</small></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "b3720636aaa0b6188ca4c45255bf1f79",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-accordion data-labels='[&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e\ud83d\udd0e Events in cycle 0 (32)&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;]' data-multiple='false' data-expanded='[]'><div><marimo-ui-element object-id='emfo-0' random-id='c1f35424-728d-42f7-7a6a-84a53c89b67f'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;begin&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;bd&#92;&quot;},{&#92;&quot;begin&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/16&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.589,&#92;&quot;pan&#92;&quot;:0.328},{&#92;&quot;begin&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;n&#92;&quot;:12,&#92;&quot;s&#92;&quot;:&#92;&quot;pluck&#92;&quot;,&#92;&quot;cutoff&#92;&quot;:2030.209,&#92;&quot;delay&#92;&quot;:0.3,&#92;&quot;room&#92;&quot;:0.3},{&#92;&quot;begin&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/16&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;rim&#92;&quot;,&#92;&quot;room&#92;&quot;:0.4,&#92;&quot;gain&#92;&quot;:0.9},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/16&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.5,&#92;&quot;pan&#92;&quot;:0.322},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;cp&#92;&quot;,&#92;&quot;room&#92;&quot;:0.3},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;3/16&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.692,&#92;&quot;pan&#92;&quot;:0.316},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/8&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;n&#92;&quot;:17,&#92;&quot;s&#92;&quot;:&#92;&quot;pluck&#92;&quot;,&#92;&quot;cutoff&#92;&quot;:1977.827,&#92;&quot;delay&#92;&quot;:0.3,&#92;&quot;room&#92;&quot;:0.3},{&#92;&quot;begin&#92;&quot;:&#92;&quot;3/16&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.724,&#92;&quot;pan&#92;&quot;:0.31},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;5/16&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.51,&#92;&quot;pan&#92;&quot;:0.304},{&#92;&quot;begin&#92;&quot;:&#92;&quot;1/4&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;3/8&#92;&quot;,&#92;&quot;n&#92;&quot;:19,&#92;&quot;s&#92;&quot;:&#92;&quot;pluck&#92;&quot;,&#92;&quot;cutoff&#92;&quot;:1925.445,&#92;&quot;delay&#92;&quot;:0.3,&#92;&quot;room&#92;&quot;:0.3},{&#92;&quot;begin&#92;&quot;:&#92;&quot;5/16&#92;&quot;,&#92;&quot;end&#92;&quot;:&#92;&quot;3/8&#92;&quot;,&#92;&quot;s&#92;&quot;:&#92;&quot;hh&#92;&quot;,&#92;&quot;gain&#92;&quot;:0.403,&#92;&quot;pan&#92;&quot;:0.298}]&quot;' data-total-rows='32' data-total-columns='9' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='12' data-show-filters='false' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div></marimo-accordion>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "5d1d7b69b464387134cc23f9e1c02013",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"cheat-sheet\">Cheat sheet</h2>\n<table>\n<thead>\n<tr>\n<th></th>\n<th></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Drums</strong></td>\n<td><code>bd</code> <code>sn</code>/<code>sd</code> <code>hh</code> <code>oh</code> <code>cp</code> <code>rim</code> <code>cb</code> <code>lt</code> <code>mt</code> <code>ht</code> <code>cr</code> <code>perc</code>. Use <code>:n</code> or <code>.n()</code> for variants, e.g. <code>s(\"bd:2\")</code></td>\n</tr>\n<tr>\n<td><strong>Synths</strong></td>\n<td><code>sine</code> <code>tri</code> <code>saw</code> <code>square</code> <code>supersaw</code> <code>superpiano</code> <code>pluck</code> <code>bass</code> <code>pad</code>. Pitch comes from <code>note</code> and/or <code>n</code></td>\n</tr>\n<tr>\n<td><strong>Notes</strong></td>\n<td>Tidal convention: <code>0</code> = <code>c5</code> = middle C. Names look like <code>c</code>, <code>eb4</code>, <code>fs6</code>; numbers are semitones</td>\n</tr>\n<tr>\n<td><strong>Controls</strong></td>\n<td><code>gain</code> <code>pan</code> <code>speed</code> <code>legato</code> <code>sustain</code> <code>attack</code> <code>release</code> <code>octave</code> <code>cutoff</code> <code>hcutoff</code> (Hz) <code>shape</code> <code>crush</code> <code>coarse</code> <code>room</code> <code>size</code> <code>delay</code> <code>delaytime</code> (s) <code>delayfeedback</code></td>\n</tr>\n<tr>\n<td><strong>Mini-notation</strong></td>\n<td><code>~</code> rest \u00b7 <code>[a b]</code> group \u00b7 <code>a*3</code> \u00b7 <code>a/2</code> \u00b7 <code>&lt;a b&gt;</code> alternate \u00b7 <code>a(3,8)</code> euclid \u00b7 <code>a@3</code> \u00b7 <code>a _ b</code> \u00b7 <code>[a, b]</code> stack \u00b7 <code>a . b</code> \u00b7 <code>a?</code> maybe \u00b7 <code>a!3</code> repeat \u00b7 <code>a | b</code> either \u00b7 <code>{a b, c d e}</code> polymeter \u00b7 <code>0 .. 7</code> range</td>\n</tr>\n<tr>\n<td><strong>Functions</strong></td>\n<td><code>.fast</code> <code>.slow</code> <code>.rev</code> <code>.every(n, f)</code> <code>.jux(rev)</code> <code>.iter(4)</code> <code>.superimpose(f)</code> <code>.degrade_by(.3)</code> <code>.sometimes(f)</code> <code>.segment(n)</code> <code>.struct()</code> <code>.mask()</code> <code>.early</code> <code>.late</code></td>\n</tr>\n<tr>\n<td><strong>Signals</strong></td>\n<td><code>sine()</code> <code>saw()</code> <code>tri()</code> <code>square()</code> <code>rand()</code> <code>perlin()</code> <code>irand(8)</code>, all scaled with <code>.range(lo, hi)</code></td>\n</tr>\n<tr>\n<td><strong>The path</strong></td>\n<td><code>path.x</code> <code>path.y</code> are signals too (0 to 1, one lap of the path per loop). <code>path.knots</code> is a hit at every knot, for <code>.struct(path.knots)</code></td>\n</tr>\n<tr>\n<td><strong>Scales</strong></td>\n<td><code>scale(\"minor\", \"0 2 4 7\")</code> turns scale steps into notes: <code>minpent</code> <code>majpent</code> <code>minor</code> <code>major</code> <code>dorian</code> <code>phrygian</code> <code>lydian</code> <code>mixolydian</code> <code>harmonic</code> <code>blues</code> <code>whole</code> <code>chromatic</code></td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\"><strong>How this differs from Strudel:</strong> methods are snake_case (<code>degrade_by</code>, not\n<code>degradeBy</code>), signals are functions (<code>sine()</code>, not <code>sine</code>), and lambdas take\nthe place of arrow functions (<code>.sometimes(lambda p: p.speed(2))</code>).</span>\n<span class=\"paragraph\"><strong>Engine quirks to know about:</strong> you can't do arithmetic on control patterns\n(<code>n(\"0 2\") + 12</code> fails; write <code>n(sequence(0, 2) + 12)</code>), and <code>\"&lt;a b&gt;*8\"</code> plays\n<code>a b a b \u2026</code> as in Tidal (use <code>s(\"&lt;a b&gt;\").segment(8)</code> to hold each value for a cycle).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "673ad2d942805753d0f8233293a14394",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"things-to-try\">Things to try</h2>\n<span class=\"paragraph\">Paste any of these into the free-form cell or mute the editor's layers to hear them alone:</span>\n<div class=\"language-python codehilite\"><pre><span></span><code><span class=\"c1\"># the path as a bassline: the dot's height picks one of five low notes, twice per cycle</span>\n<span class=\"n\">extra</span> <span class=\"o\">=</span> <span class=\"n\">n</span><span class=\"p\">(</span><span class=\"n\">scale</span><span class=\"p\">(</span><span class=\"s2\">\"minpent\"</span><span class=\"p\">,</span> <span class=\"n\">path</span><span class=\"o\">.</span><span class=\"n\">y</span><span class=\"o\">.</span><span class=\"n\">range</span><span class=\"p\">(</span><span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">5</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">segment</span><span class=\"p\">(</span><span class=\"mi\">2</span><span class=\"p\">)))</span><span class=\"o\">.</span><span class=\"n\">s</span><span class=\"p\">(</span><span class=\"s2\">\"bass\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">octave</span><span class=\"p\">(</span><span class=\"mi\">3</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">legato</span><span class=\"p\">(</span><span class=\"mf\">0.8</span><span class=\"p\">)</span>\n\n<span class=\"c1\"># every knot of the path plays a chord</span>\n<span class=\"n\">extra</span> <span class=\"o\">=</span> <span class=\"n\">note</span><span class=\"p\">(</span><span class=\"s2\">\"[c,eb,g]\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">s</span><span class=\"p\">(</span><span class=\"s2\">\"superpiano\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">struct</span><span class=\"p\">(</span><span class=\"n\">path</span><span class=\"o\">.</span><span class=\"n\">knots</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">room</span><span class=\"p\">(</span><span class=\"mf\">0.4</span><span class=\"p\">)</span>\n\n<span class=\"c1\"># acid-ish bass with a cutoff sweep and some distortion</span>\n<span class=\"n\">extra</span> <span class=\"o\">=</span> <span class=\"n\">n</span><span class=\"p\">(</span><span class=\"s2\">\"0 0 12 0 3 0 10 7\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">s</span><span class=\"p\">(</span><span class=\"s2\">\"saw\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">octave</span><span class=\"p\">(</span><span class=\"mi\">3</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">legato</span><span class=\"p\">(</span><span class=\"mf\">0.5</span><span class=\"p\">)</span> \\\n    <span class=\"o\">.</span><span class=\"n\">cutoff</span><span class=\"p\">(</span><span class=\"n\">sine</span><span class=\"p\">()</span><span class=\"o\">.</span><span class=\"n\">range</span><span class=\"p\">(</span><span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">3000</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">slow</span><span class=\"p\">(</span><span class=\"mi\">2</span><span class=\"p\">))</span><span class=\"o\">.</span><span class=\"n\">shape</span><span class=\"p\">(</span><span class=\"mf\">0.4</span><span class=\"p\">)</span>\n\n<span class=\"c1\"># stereo trick: jux plays a reversed copy on the right</span>\n<span class=\"n\">extra</span> <span class=\"o\">=</span> <span class=\"n\">n</span><span class=\"p\">(</span><span class=\"n\">run</span><span class=\"p\">(</span><span class=\"mi\">8</span><span class=\"p\">))</span><span class=\"o\">.</span><span class=\"n\">s</span><span class=\"p\">(</span><span class=\"s2\">\"pluck\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">jux</span><span class=\"p\">(</span><span class=\"n\">rev</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">room</span><span class=\"p\">(</span><span class=\"mf\">0.4</span><span class=\"p\">)</span>\n\n<span class=\"c1\"># randomness with a fixed seed per cycle, so every loop sounds the same</span>\n<span class=\"n\">extra</span> <span class=\"o\">=</span> <span class=\"n\">n</span><span class=\"p\">(</span><span class=\"n\">irand</span><span class=\"p\">(</span><span class=\"mi\">12</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">segment</span><span class=\"p\">(</span><span class=\"mi\">8</span><span class=\"p\">))</span><span class=\"o\">.</span><span class=\"n\">s</span><span class=\"p\">(</span><span class=\"s2\">\"superpiano\"</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">sometimes</span><span class=\"p\">(</span><span class=\"k\">lambda</span> <span class=\"n\">p</span><span class=\"p\">:</span> <span class=\"n\">p</span><span class=\"o\">.</span><span class=\"n\">octave</span><span class=\"p\">(</span><span class=\"mi\">6</span><span class=\"p\">))</span><span class=\"o\">.</span><span class=\"n\">room</span><span class=\"p\">(</span><span class=\"mf\">0.4</span><span class=\"p\">)</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

@@ -10,3 +10,6 @@ __marimo__/
 
 # docs build output
 docs/_site/
+
+# molab shows these session snapshots as the notebooks' previews
+!examples/__marimo__/
